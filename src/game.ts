@@ -7,7 +7,7 @@ export class Game {
   private pixi: PIXI.Application;
   private loader: PIXI.Loader;
   private fishes: Fish[] = [];
- 
+
   constructor() {
     this.pixi = new PIXI.Application({
       width: window.innerWidth,
@@ -21,7 +21,7 @@ export class Game {
     this.loader
       .add("fishTexture", fishImage)
       .add("waterTexture", waterImage)
-     
+
 
     this.loader.onProgress.add((loader) => this.showProgress(loader));
     this.loader.onError.add((arg) => {
@@ -37,8 +37,8 @@ export class Game {
   private startGame() {
     let bg = new PIXI.Sprite(
       this.loader.resources["waterTexture"].texture!,
-      
-      
+
+
     );
     this.pixi.stage.addChild(bg);
 
@@ -48,7 +48,7 @@ export class Game {
       this.fishes.push(fish);
     }
 
-    
+
 
     this.pixi.ticker.add(() => this.update());
   }
@@ -58,10 +58,10 @@ export class Game {
   private update() {
     for (let fish of this.fishes) {
       fish.swim();
-     
-      }
-    }
- 
-    }
 
-  
+    }
+  }
+
+}
+
+
