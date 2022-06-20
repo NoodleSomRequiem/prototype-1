@@ -50,12 +50,12 @@ export class Game {
 
 
 
-    this.pixi.ticker.add(() => this.update());
+    this.pixi.ticker.add((delta) => this.update(delta));
   }
 
 
 
-  private update() {
+  private update(delta: number) {
     for (let fish of this.fishes) {
       fish.swim();
 
